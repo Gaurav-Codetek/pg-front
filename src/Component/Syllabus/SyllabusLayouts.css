@@ -1,0 +1,75 @@
+.subject{
+    border-radius: 60px;
+}
+.EcSyllabus {
+    width: 70%;
+    border-radius: 30px;
+    margin-top: 30px;
+    box-shadow: 3px 3px 10px -1px rgba(207, 207, 207, 0.84);
+    overflow: hidden;
+    color: rgb(118, 23, 187);
+    max-height: 66px;
+    transition: max-height 0.7s cubic-bezier(0.04, 0.05, 0.04, 0.05);
+}
+.open {
+    width: 70%;
+    border-radius: 30px;
+    margin-top: 30px;
+    box-shadow: 3px 3px 10px -1px rgba(207, 207, 207, 0.84);
+    max-height: 1000px;
+    transition: max-height 0.7s cubic-bezier(0.04, 0.05, 0.04, 0.05); ; 
+}
+.open::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+.open {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+.chapters{
+    padding: 16px;
+}
+.name{
+    position: sticky;
+    top: 0;
+    margin: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    background-color: whitesmoke;
+    padding: 1px 17px;
+    cursor: pointer;
+    border-bottom-left-radius:0 ;
+    border-bottom-right-radius:0 ;
+}
+
+.ChapterName{
+    color: #8bb08b;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    
+}
+.topicName{
+    margin: -1px -1px;
+    width: 100%;
+    overflow: hidden;
+    color: black;
+    font-weight: 600;
+}
+
+.chapter{
+    max-height: 46px;
+    overflow: hidden;
+
+}
+.chapterOpen{
+    overflow: hidden;
+    max-height: 1000px;
+}

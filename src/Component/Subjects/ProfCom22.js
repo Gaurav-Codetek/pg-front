@@ -4,13 +4,7 @@ function ProfCom22() {
     return (
         <>
             <div className="test">
-                <div className="header">
-                    Professional Communication <b> Minor Ques.</b>
-                </div>
-                <br />
-                SEM-1
-                <br />
-                <br />
+                
                 <div className="head">
                     Question-1
                 </div>

@@ -1,60 +1,54 @@
 import React, { useState } from 'react'
-import AppChe22 from '../Subjects/AppChe22';
-import Cal22 from '../Subjects/Cal22';
-import ProgFun22 from '../Subjects/ProgFun22';
-import Beee22 from '../Subjects/Beee22';
-import EngGra22 from '../Subjects/EngGra22';
+import { useNavigate } from 'react-router-dom';
 
 function EceSem1() {
 
-    const [display, setDisplay] = useState(<AppChe22 />)
-    const AppCheEvent = () => {
-        setDisplay(<AppChe22/>)
+    const nav = useNavigate();
 
+    const AppCheEvent = async() => {
+        await nav('/contentPg/AppliedChem')
     }
 
     const CalEvent = () => {
-        setDisplay(<Cal22/>)
+        nav('/contentPg/calculus')
 
     }
 
     const ProgFunEvent = () => {
-        setDisplay(<ProgFun22/>)
-
+        nav('/contentPg/programming-fundamentals')
     }
 
     const BeeeEvent = () => {
-        setDisplay(<Beee22/>)
+        nav('/contentPg/beee')
     }
 
     const EngGraEvent = () => {
-        setDisplay(<EngGra22/>)
+        // setDisplay(<EngGra22 />)
+        alert('No previous papers')
     }
+
     return (
         <>
-            <div className="pyqBodyView">
-                <div className="pyqLeftbar">
-                    <div className="subList">
-                        <ul>
-                            <li onClick={AppCheEvent}>Applied Chemistry</li>
-                            <li onClick={CalEvent}>Calculus</li>
-                            <li onClick={BeeeEvent}>BEEE</li>
-                            <li onClick={EngGraEvent}>Engineering Graphics</li>
-                            <li onClick={ProgFunEvent}>Programming Fundamentals</li>
-                        </ul>
-                    </div>
+            <div className="listSec">
+                <div onClick={AppCheEvent} className="card">
+                    <p className='cardName'>Applied Chem</p>
+                    <p className='cardYear'>ECE Sem 1 <span>2022</span></p>
                 </div>
-                <div className="pyqContView">
-                    {display}
+                <div onClick={BeeeEvent} className="card">
+                    <p className='cardName'>BEEE</p>
+                    <p className='cardYear'>ECE Sem 1 <span>2022</span></p>
                 </div>
-                <div className="pyqRightbar">
-                    <div className="subList yearList">
-                        <ul>
-                            <li>2022</li>
-                            {/* <li>2021</li>
-                            <li>2020</li> */}
-                        </ul>
-                    </div>
+                <div onClick={CalEvent} className="card">
+                    <p className='cardName'>Calculus</p>
+                    <p className='cardYear'>ECE Sem 1 <span>2022</span></p>
+                </div>
+                <div onClick={ProgFunEvent} className="card">
+                    <p className='cardName'>Programming Funda</p>
+                    <p className='cardYear'>ECE Sem 1 <span>2022</span></p>
+                </div>
+                <div onClick={EngGraEvent} className="card">
+                    <p className='cardName'>Eng. Graphics</p>
+                    <p className='cardYear'>ECE Sem 1 <span>2022</span></p>
                 </div>
             </div>
         </>

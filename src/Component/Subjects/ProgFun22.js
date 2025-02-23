@@ -7,13 +7,7 @@ function ProgFun22() {
     return (
         <>
             <div className="test">
-                <div className="header">
-                    Calculus <b>Minor Ques.</b>
-                </div>
-                <br />
-                SEM-1
-                <br />
-                <br />
+                
                 <div className="head">
                     I. Statement Questions:
                 </div>

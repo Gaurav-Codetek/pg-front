@@ -6,13 +6,7 @@ function AppChe22() {
     return (
         <>
             <div className="test">
-                <div className="header">
-                    Applied Chemistry <b>Minor Ques.</b>
-                </div>
-                <br />
-                SEM-1
-                <br />
-                <br />
+                
                 <div className="head">
                     I. Multiple Choice Questions
                 </div>
@@ -34,11 +28,11 @@ function AppChe22() {
                         <br />
 
                         <div className="options">
-                            <li>C,D</li>
+                            <li>III,IV</li>
                             <li>All</li>
-                            <li>A,D</li>
-                            <li>A,B</li>
-                            <li>B,D</li>
+                            <li>I,IV</li>
+                            <li>I,II</li>
+                            <li>II,IV</li>
                         </div>
                     </li>
                     <br />

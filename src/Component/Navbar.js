@@ -1,62 +1,99 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from './Images/Group 10.png'
 import './Navbar.css'
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
+import { RiLoader3Line } from 'react-icons/ri'
+import { GiPreviousButton } from "react-icons/gi";
 
-function Navbar(){
+function Navbar() {
 
-    const openMenu = ()=>{
+    const [loader, setLoader] = useState()
+    const Nav = useNavigate()
+    const openMenu = () => {
         let e = document.querySelector(".nav-btn-inner")
-        let f = document.querySelector(".one")
-        let g = document.querySelector(".two")
-        let h = document.querySelector(".three")
-        f.style.display="block"
-        g.style.display="block"
-        h.style.display="block"
-        e.style.visibility="visible"
-        e.style.width="100px"
-        
+        let f = document.querySelector(".MobLogout")
+        // let f = document.querySelector(".one")
+        // let g = document.querySelector(".two")
+        // let h = document.querySelector(".three")
+        f.style.display = "block"
+        // g.style.display="block"
+        // h.style.display="block"
+        e.style.visibility = "visible"
+        e.style.width = "65%"
+
     }
 
-    const closeMenu = ()=>{
+    const closeMenu = () => {
         let e = document.querySelector(".nav-btn-inner")
-        let f = document.querySelector(".one")
-        let g = document.querySelector(".two")
-        let h = document.querySelector(".three")
-        setTimeout(()=>{
-            f.style.display="none"
-        g.style.display="none"
-        h.style.display="none"
+        let f = document.querySelector(".MobLogout")
+        // let g = document.querySelector(".two")
+        // let h = document.querySelector(".three")
+        setTimeout(() => {
+            f.style.display = "none"
+            // g.style.display="none"
+            // h.style.display="none"
         }, 200)
-        e.style.visibility="hidden"
-        e.style.width="0px"
+        e.style.visibility = "hidden"
+        e.style.width = "0px"
     }
-    return(
+    const logout = () => {
+        setLoader(
+            <div className="loader">
+                <div className="loadIcon">
+                    <RiLoader3Line className='icon' size="75" />
+                </div>
+            </div>
+        )
+        fetch(`${process.env.REACT_APP_BASE_URL}logout`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-type": "application/json"
+            },
+            credentials: "include"
+        }).then((res) => {
+            // console.log()
+            Nav("/home", { replace: true });
+        })
+            .catch((e) => {
+                console.log("Logout Error")
+            })
+
+    }
+
+
+    return (
         <>
-        <div className="nav-cont">
-        <nav>
-            <div className="logo">
-                <img src={Logo} alt="Logo"/>
+            {loader}
+            <div className="nav-cont">
+                <nav>
+                    <div className="logo">
+                        <img src={Logo} alt="Logo" />
+                    </div>
+                    <div className="nav-btn">
+                        <div className="ham" onClick={openMenu} >
+                            <div className="line"></div>
+                            <div className="line"></div>
+                            <div className="line"></div>
+                        </div>
+                        <div className="nav-btn-inner">
+                            <div className="back">
+                                <GiPreviousButton className='close' size='37' color='rgb(9,146,7)' onClick={closeMenu} />
+                                <p>Back</p>
+                            </div>
+                            <hr />
+                            <a className='MobLogout' onClick={logout}>Logout</a>
+                            {/* <button onClick={logout}>Logout</button> */}
+                        </div>
+                        <a className='logout' onClick={logout}>Logout</a>
+                    </div>
+                </nav>
+                <hr />
             </div>
-            <div className="nav-btn">
-                <div className="ham" onClick={openMenu} >
-                    <div className="line"></div>
-                    <div className="line"></div>
-                    <div className="line"></div>
-                </div>
-                <div className="nav-btn-inner">
-                <AiOutlineClose className='close' size='20' onClick={closeMenu}/>
-                <a className='one' href="./">Home</a>
-                <a className='two' href="./">About Us</a>
-                <a className='three' href="./">Connect</a>
-                </div>
-            </div>
-        </nav>
-        <hr/>
-    </div>
         </>
 
-);
+    );
 
 }
 

@@ -7,63 +7,45 @@ import Pyq from './Component/Pyq'
 
 // import PopupCmd from './Component/PopupCmd';
 import "./App.css"
+import "./AppMob.css"
 import './Component/Navbar.css'
 import MainSection from './Component/MainSection'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ContentWindow from './Component/Window/ContentWindow'
+import CalWindow from './Component/Window/CalWindow'
+import PfWindow from './Component/Window/PfWindow'
+import QuantWindow from './Component/Window/QuantWindow'
+import BeeeWindow from './Component/Window/BeeeWindow'
+import OAuth1 from './Component/OAuth1'
+import DDWindow from './Component/Window/DDWindow'
+import PcWindow from './Component/Window/PcWindow'
+import DiffEqWindow from './Component/Window/DiffEqWindow'
+import EmailVer from './Component/EmailVer'
+import PassChange from './Component/PassChange'
+import Comms19 from './Component/Subjects/Sem4/Comms19'
 
 
 function App() {
 
-  //   const[roll, setRoll] = useState('')
-  //   const[Name1, setName1] = useState('')
-
-  //   const RollChange = (e)=>{
-  //     setRoll(e.target.value)
-  //   }
-
-  //   const DobChange = (e)=>{
-  //     setName1(e.target.value)
-  //   }
-
-  //   // const xhr = new XMLHttpRequest() ; 
-  //   // xhr.open("POST",'http://localhost:4000/form',true); 
-  //   // xhr.onload = function(){
-
-  //   // }
-  //   // const FormData = new FormData();
-  //   // xhr.send(FormData) ;
-
-  //   async function onSubmit(e){
-  //     e.preventDefault()
-
-  //     try{
-  //         await axios.post('http://localhost:4000/form',{
-  //             roll, Name1
-  //         }).then(res=>{
-  //           if(res.data==="exist"){
-  //             alert("Valid User")
-  //           }
-  //           else if(res.data === "notexist"){
-  //             alert("You are not an authorised USER!")
-  //           }
-  //         }).catch(err=>console.log(err))
-
-
-  //     }
-  //     catch(e){
-  //         console.log(e)
-  //     }
-  // }
-  //   console.log(roll)
-  //   console.log(Name1)
   return (
     <div className="App">
-
       <Router>
         <Routes>
           <Route path='/' element={<MainSection/>}/>
           <Route path='/home' element={<Popup />} />
+          <Route path='/auth1' element={<OAuth1/>}/>
           <Route path='/pyq' element={<Pyq />} />
+          <Route path='/contentPg/AppliedChem' element={<ContentWindow/>}/>
+          <Route path='/contentPg/beee' element={<BeeeWindow/>}/>
+          <Route path='/contentPg/programming-fundamentals' element={<PfWindow/>}/>
+          <Route path='/contentPg/calculus' element={<CalWindow/>}/>
+          <Route path='/contentPg/quantum-physics' element={<QuantWindow/>} />
+          <Route path='/contentPg/professional-communication' element={<PcWindow/>}/>
+          <Route path='/contentPg/digital-design' element={<DDWindow/>}/>
+          <Route path="/contentPg/differential-equation" element={<DiffEqWindow/>}/>
+          <Route path='/email-verification' element={<EmailVer/>}/>
+          <Route path='/contentPg/communication-eng' element={<Comms19/>}/>
+          <Route path='/pass-change' element={<PassChange/>}/>
         </Routes>
       </Router>
 

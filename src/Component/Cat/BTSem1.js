@@ -1,67 +1,31 @@
 import React, { useState } from 'react'
-import AppChe22 from '../Subjects/AppChe22';
-import Cal22 from '../Subjects/Cal22';
-// import ProgFun22 from '../Subjects/ProgFun22';
-// import Beee22 from '../Subjects/Beee22';
-// import EngGra22 from '../Subjects/EngGra22';
-import QuantPhy22 from '../Subjects/QuantPhy22'
-import ProfCom22 from '../Subjects/ProfCom22'
-// import DiffEq22 from '../Subjects/DiffEq22'
-// import BioEng22 from '../Subjects/BioEng22';
-import Beee22 from '../Subjects/Beee22';
-import FundaBT22 from '../Subjects/FundaBT22';
-import AppPhy22 from '../Subjects/AppPhy22';
-// import FundaBT22 from '../Subjects/FundaBT22'
+import { useNavigate } from 'react-router-dom';
 function BTSem1() {
 
-    const [display, setDisplay] = useState(<QuantPhy22 />)
-    const AppPhyEvent = () => {
-        setDisplay(<AppPhy22/>)
+    const nav = useNavigate();
 
+    const onPCEvent = ()=>{
+        nav('/contentPg/professional-communication')
     }
 
-    const CalEvent = () => {
-        setDisplay(<Cal22/>)
-
-    }
-
-    const BeeeEvent = () => {
-        setDisplay(<Beee22/>)
-
-    }
-
-    const ProfComEvent = () => {
-        setDisplay(<ProfCom22/>)
-    }
-
-    const FundaBTEvent = () => {
-        setDisplay(<FundaBT22/>)
-    }
     return (
         <>
-            <div className="pyqBodyView">
-                <div className="pyqLeftbar">
-                    <div className="subList">
-                        <ul>
-                            <li onClick={AppPhyEvent}>Applied Physics</li>
-                            <li onClick={CalEvent}>Calculus</li>
-                            <li onClick={ProfComEvent}>Professional Comm</li>
-                            {/* <li onClick={FundaBTEvent}>Fundamentals of BT</li> */}
-                            <li onClick={BeeeEvent}>BEEE</li>
-                        </ul>
-                    </div>
+            <div className="listSec">
+                <div className="card">
+                    <p className='cardName'>Applied Phy</p>
+                    <p className='cardYear'>BT Sem 1 <span>2022</span></p>
                 </div>
-                <div className="pyqContView">
-                    {display}
+                <div className="card">
+                    <p className='cardName'>BEEE</p>
+                    <p className='cardYear'>BT Sem 1 <span>2022</span></p>
                 </div>
-                <div className="pyqRightbar">
-                    <div className="subList yearList">
-                        <ul>
-                            <li>2022</li>
-                            {/* <li>2021</li>
-                            <li>2020</li> */}
-                        </ul>
-                    </div>
+                <div className="card">
+                    <p className='cardName'>Calculus</p>
+                    <p className='cardYear'>BT Sem 1 <span>2022</span></p>
+                </div>
+                <div onClick={onPCEvent} className="card">
+                    <p className='cardName'>Professional Comm</p>
+                    <p className='cardYear'>BT Sem 1 <span>2022</span></p>
                 </div>
             </div>
         </>

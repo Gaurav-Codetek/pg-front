@@ -17,12 +17,12 @@ import CseSem1 from './Cat/CseSem1'
 
 function Pyq() {
 
-    const [display, setDisplay] = useState(<EceSem1/>)
+    const [display, setDisplay] = useState(<EceSem1 />)
     const [data, setData] = useState('')
     const Nav = useNavigate();
     const callAboutPage = async () => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_BASE_URL_S}`, {
+            const res = await fetch(`${process.env.REACT_APP_BASE_URL}`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -32,71 +32,51 @@ function Pyq() {
             })
             const data = await res.json()
 
-            // console.log(data) ;
             setData(data)
             if (!res.status === 200) {
-                const error = new Error(res.error)
-                throw error;
+                console.log("Error On status Code")
                 Nav("/home");
             }
         } catch (err) {
-            console.log(err);
+            console.log("Auth Error at pySec");
             Nav("/home");
         }
     }
 
-    let a;
-    
-            const onLoad = async()=>{
-                if (data.branch === "ECE") {
-                    a = <EceSem1/>
-                }
-    
-                if (data.branch === "IT") {
-                    a = <ITSem1/>
-                }
-    
-                if (data.branch === "CSE") {
-                    a = <CseSem1/>
-                }
-    
-                if (data.branch === "EEE") {
-                    a = <EeeSem1/>
-                }
-    
-                if (data.branch === "BIO") {
-                    a = <BTSem1/>
-                }
-    
-                if (data.branch === "MECH") {
-                    a = <MechSem1/>
-                }
-            }
+    const check = async()=>{
+        const timeInterval = 14 * 60000;
+        setInterval( async()=>{
+            const Checker = await fetch(`${process.env.REACT_APP_BASE_URL}check`, {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            })
+            const res = await Checker.json();
+            console.log(res.data.msg)
+        }, timeInterval)
+    }
 
-            
-    
+
+
     const location = useLocation()
     useEffect(() => {
         callAboutPage();
-        onLoad()
-        //   setDisplay(<CseSem1/>)
+        check();
 
-    }, [])
+    },[])
 
 
-    // const [sem1, setSem] = useState('')
-    // const [branch1, setBranch] = useState('ECE')
+    const [sem1, setSem] = useState('')
+    const [branch1, setBranch] = useState('ECE')
 
     const onClick = async () => {
         var e = document.querySelector('#sem')
         var f = document.querySelector('#branch')
         const sem = e.value;
         const branch = f.value;
-        // setDisplay(output)
-        console.log(sem)
-        console.log(branch)
-        // setBranch(branch)
-        // setSem(sem)
 
 
 
@@ -166,6 +146,7 @@ function Pyq() {
                 </div>
                 <hr />
                 {display}
+                
             </div>
         </>
     );

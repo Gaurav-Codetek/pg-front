@@ -9,13 +9,6 @@ function Beee22() {
     return (
         <>
             <div className="test">
-                <div className="header">
-                    BEEE <b>Minor Ques.</b>
-                </div>
-                <br />
-                SEM-1
-                <br />
-                <br />
                 <div className="head">
                     I. Statement Questions:
                 </div>
@@ -77,7 +70,7 @@ function Beee22() {
 
                     </li>
                     <br />
-                    <li>
+                    {/* <li>
 
                         Find T, N and B curvature and torsion for the space curve.<br />r(t)=con(t)i + sin(t)j+tk
 
@@ -124,7 +117,7 @@ function Beee22() {
                     <li>
                         a1 = cos(1). The next terms are a2 = a1 or cos(2), whichever is larger; and a3 = a2 or cos(3), whichever is larger. In general, an+1 = max(an, cos(n + 1)).
                         Discuss the convergence for the sequence.
-                    </li>
+                    </li> */}
                 </div>
             </div>
         </>
